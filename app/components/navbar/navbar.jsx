@@ -1,31 +1,59 @@
 "use client";
 
-import React, { useState } from "react";
-import IconButton from "@mui/material/IconButton";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import ProfilePic from "../../../public/images/profile.png";
 import Logo from "../../../public/images/icon.png";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import Switch from "@mui/material/Switch";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import { useTheme } from "@mui/material/styles";
 
-export default function Navbar() {
-  const [theme, SetTheme] = useState("dark");
-  function toggleswitch() {
-    if (theme == "dark") {
-      SetTheme("light");
-    } else {
-      SetTheme("dark");
-    }
-    console.log(theme);
+export default function Navbar({ toggleswitch }) {
+  const [openMenu, setOpenMenu] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const theme = useTheme();
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 761) {
+        setIsNavOpen(false);
+        setOpenMenu(false);
+      } else {
+        setIsNavOpen(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  function togglebuttonNav() {
+    setOpenMenu(!openMenu);
   }
+  console.log(isNavOpen);
   return (
     <>
-      <nav className="bg-gray-800 h-16 w-full flex items-center justify-between shadow-3xl relative">
-        <div className="md:hidden absolute top-4 left-4">
-          <button className="text-white focus:outline-none"></button>
-        </div>
-        <div className="m-5 ">
+      <nav
+        className="h-16 w-full flex items-center justify-between shadow-3xl static bg-primary"
+        style={{ backgroundColor: theme.palette.primary.main }}
+      >
+        {isNavOpen &&
+          (!openMenu ? (
+            <button onClick={togglebuttonNav}>
+              <MenuIcon sx={{ fontSize: "40px", color: "white" }} />
+            </button>
+          ) : (
+            <button onClick={togglebuttonNav}>
+              <CloseIcon sx={{ fontSize: "40px", color: "white" }} />
+            </button>
+          ))}
+        <div className="m-5">
           <div className="text-white capitalize font-bold p-4 text-4xl flex items-center">
             <Image
               className="h-12 w-12 mr-2 object-cover -rotate-12"
@@ -35,44 +63,68 @@ export default function Navbar() {
             FNR
           </div>
         </div>
-        <div className="text-white capitalize p-4 text-2xl hidden md:flex">
-          <a>HOME</a>
+        <div
+          className={`w-full ${
+            isNavOpen && openMenu
+              ? "absolute transition ease-out transform translate-y-40"
+              : "absolute ease-in transform -translate-y-full"
+          } ${isNavOpen || "flex"}`}
+          style={{ backgroundColor: theme.palette.primary.main }}
+        >
+          <div className=" text-white capitalize p-4 text-2xl">
+            <a>HOME</a>
+          </div>
+          <div className="text-white capitalize p-4 text-2xl">
+            <a>Profile</a>
+          </div>
+          <div className="text-white capitalize p-4 text-2xl">
+            <a>Projet</a>
+          </div>
+          <div className="text-white capitalize p-4 text-2xl">
+            <a>contact</a>
+          </div>
         </div>
-        <div className="text-white capitalize p-4 text-2xl hidden md:flex">
-          <a>Profile</a>
-        </div>
-        <div className="text-white capitalize p-4 text-2xl hidden md:flex">
-          <a>Projet</a>
-        </div>
-        <div className="text-white capitalize p-4 text-2xl hidden md:flex">
-          <a>contact</a>
-        </div>
-        <div className="ml-auto flex">
-          <div className="m-5">
+
+        <div className="ml-auto flex ">
+          <div className="m-5 items-stretch">
             <Switch
               onChange={toggleswitch}
               icon={
-                <NightlightIcon sx={{ fontSize: "30px", color: "white" }} />
+                <NightlightIcon
+                  sx={{
+                    fontSize: "30px",
+                    color: "white",
+                    transform: "rotate(-20deg)",
+                    marginTop: "-2px",
+                  }}
+                />
               }
               checkedIcon={
-                <WbSunnyIcon sx={{ fontSize: "30px", color: "white" }} />
+                <WbSunnyIcon
+                  sx={{ fontSize: "30px", color: "white", marginTop: "-2px" }}
+                />
               }
               sx={{
-                width: "70px",
-                height: "45px",
+                width: "60px",
+                height: "40px",
+                ".MuiSwitch-track": {
+                  backgroundColor: "#FF4823",
+                },
                 "& .MuiSwitch-switchBase": {
-                  margin: 1,
-                  padding: 0,
                   "&.Mui-checked": {
-                    color: "#fff",
-                    transform: "translateX(30px)",
+                    "+ .MuiSwitch-track": {
+                      backgroundColor: "#FF4823",
+                    },
+                    ".MuiSwitch-thumb": {
+                      height: "24px",
+                      marginLeft: "auto",
+                      transform: "translateX(500px)",
+                    },
                   },
                 },
                 "& .MuiSwitch-thumb": {
-                  width: "24px",
                   height: "24px",
                   marginLeft: "auto",
-                  transform: "translateX(500px)",
                 },
                 color: "success.main",
               }}
