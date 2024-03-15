@@ -64,12 +64,12 @@ export default function Navbar({ toggleswitch }) {
           </div>
         </div>
         <div
-          className={`w-full ${
+          className={`${
             isNavOpen
               ? openMenu
-                ? "absolute transition ease-out transform translate-y-40"
+                ? "w-full  absolute transition ease-out transform translate-y-40"
                 : "absolute ease-in transform -translate-y-full"
-              : "flex"
+              : " w-auto flex"
           }`}
           style={{ backgroundColor: theme.palette.primary.main }}
         >

@@ -1,6 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
+
 import Navbar from "./components/navbar/navbar";
+import Welcome from "./components/welcome/welcome";
+
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { purple } from "@mui/material/colors";
@@ -31,7 +34,7 @@ export default function Home() {
       <CssBaseline />
       <main>
         <Navbar toggleswitch={toggleswitch}></Navbar>
-        This app is using the dark mode
+        <Welcome></Welcome>
       </main>
     </ThemeProvider>
   );
