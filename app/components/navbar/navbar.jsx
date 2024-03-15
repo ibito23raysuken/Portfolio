@@ -39,8 +39,8 @@ export default function Navbar({ toggleswitch }) {
   return (
     <>
       <nav
-        className="h-16 w-screen flex items-center justify-between static"
-        style={{ backgroundColor: theme.palette.primary.main }}
+        className="fixed h-16 w-screen flex items-center justify-between "
+        style={{ backgroundColor: theme.palette.primary.main, zIndex: 1000 }}
       >
         {isNavOpen &&
           (!openMenu ? (
@@ -73,10 +73,10 @@ export default function Navbar({ toggleswitch }) {
           style={{ backgroundColor: theme.palette.primary.main }}
         >
           <div className=" text-white capitalize p-4 text-2xl">
-            <a>HOME</a>
+            <a href="#welcome">HOME</a>
           </div>
           <div className="text-white capitalize p-4 text-2xl">
-            <a>Profile</a>
+            <a href="#profile">Profile</a>
           </div>
           <div className="text-white capitalize p-4 text-2xl">
             <a>Projet</a>

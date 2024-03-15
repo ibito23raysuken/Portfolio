@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 
 import Navbar from "./components/navbar/navbar";
 import Welcome from "./components/welcome/welcome";
+import Profile from "./components/profile/profile";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { purple } from "@mui/material/colors";
 
 const darkTheme = createTheme({
   palette: {
@@ -35,6 +35,7 @@ export default function Home() {
       <main>
         <Navbar toggleswitch={toggleswitch}></Navbar>
         <Welcome></Welcome>
+        <Profile></Profile>
       </main>
     </ThemeProvider>
   );
