@@ -36,11 +36,10 @@ export default function Navbar({ toggleswitch }) {
   function togglebuttonNav() {
     setOpenMenu(!openMenu);
   }
-  console.log(isNavOpen);
   return (
     <>
       <nav
-        className="h-16 w-full flex items-center justify-between shadow-3xl static bg-primary"
+        className="h-16 w-screen flex items-center justify-between static"
         style={{ backgroundColor: theme.palette.primary.main }}
       >
         {isNavOpen &&
@@ -64,10 +63,10 @@ export default function Navbar({ toggleswitch }) {
           </div>
         </div>
         <div
-          className={`${
+          className={`z-20 ${
             isNavOpen
               ? openMenu
-                ? "w-full  absolute transition ease-out transform translate-y-40"
+                ? "w-full  absolute transition ease-out transform translate-y-40 "
                 : "absolute ease-in transform -translate-y-full"
               : " w-auto flex"
           }`}
