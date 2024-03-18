@@ -6,11 +6,12 @@ import { useTheme } from "@mui/material/styles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Logoreact from "../../../public/images/react.svg";
 import Logotailwind from "../../../public/images/tailwindcss.svg";
 import Logonext from "../../../public/next.svg";
 import Logovercel from "../../../public/vercel.svg";
+
 export default function Welcome() {
   const theme = useTheme();
   const [backgroundImageIndex, setBackgroundImageIndex] = useState(0);
@@ -42,7 +43,7 @@ export default function Welcome() {
     }
   }
   return (
-    <div id="welcome" className="w-screen flex flex-row justify-between">
+    <div id="welcome" className="w-screen flex flex-row justify-between pt-16">
       <div className="basis-8 h-screen flex flex-col justify-center items-center text-center relative ">
         <ArrowBackIosIcon
           style={{ fontSize: 100, marginLeft: 50 }}
@@ -74,26 +75,32 @@ export default function Welcome() {
           Ce portfolio a été réalisé en utilisant les technologies suivantes :
           <ul className="mt-5">
             <li className="flex items-center">
-              <Image className="h-20 w-20 mr-2  " src={Logoreact} alt="" />
+              <Image width={100} height={200} src={Logoreact} alt="" />
               React
             </li>
             <li className="flex items-center justify-end">
               Framework
-              <Image className=" h-10 w-52 ml-5" src={Logonext} alt="" />
+              <Image
+                className=" ml-5"
+                width={200}
+                height={50}
+                src={Logonext}
+                alt=""
+              />
             </li>
             <li className="flex items-center">
-              <Image className="h-40  w-20 mr-2  " src={Logotailwind} alt="" />
+              <Image width={100} height={50} src={Logotailwind} alt="" />
               Tailwind
             </li>
             <li className="flex items-center justify-end">
               Déployé sur
-              <Image className=" h-30 ml-6" src={Logovercel} alt="" />
+              <Image width={200} height={50} src={Logovercel} alt="" />
             </li>
           </ul>
         </div>
         <div>
           <a href="#profile">
-            <ExpandMoreIcon style={{ fontSize: 100, marginTop: 20 }} />
+            <ExpandMoreIcon style={{ fontSize: 100 }} />
           </a>
         </div>
       </div>
@@ -104,7 +111,7 @@ export default function Welcome() {
         />
       </div>
       <div
-        className={`absolute inset-0 pointer-events-none z-0 filter ${
+        className={`block absolute inset-0 pointer-events-none z-0 filter ${
           theme.palette.mode === "dark" ? "blur" : ""
         }`}
       >
@@ -112,7 +119,7 @@ export default function Welcome() {
           src={backgroundImages[backgroundImageIndex]}
           alt="Background"
           layout="fill"
-          objectFit="cover"
+          priority
           className={`opacity-50  ${
             theme.palette.mode === "dark" ? "mt-20" : "mt-16"
           }`}
