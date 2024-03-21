@@ -34,20 +34,41 @@ export default function Welcome() {
     }, 5000);
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
+  //////////////////////////
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
-  function handleKeyPress(event) {
-    if (event.key === "ArrowLeft") {
-      changeBackground(-1); // Change image to previous when left arrow key is pressed
-    } else if (event.key === "ArrowRight") {
-      changeBackground(1); // Change image to next when right arrow key is pressed
-    }
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Run only once on component mount
+  let iconSize = 100; // Taille par défaut
+  // Déterminez la taille en fonction de la largeur de la fenêtre
+  if (windowSize.width <= 600) {
+    iconSize = 50; // Taille pour les petits écrans
+  } else if (windowSize.width <= 1024) {
+    iconSize = 80; // Taille pour les écrans moyens
   }
+  /////////////////////////////
   return (
-    <div id="welcome" className="w-screen flex flex-row justify-between pt-16">
+    <div id="welcome" className="flex flex-row justify-between pt-16">
       <div className="basis-8 h-screen flex flex-col justify-center items-center text-center relative ">
         <ArrowBackIosIcon
-          style={{ fontSize: 100, marginLeft: 50 }}
+          style={{ fontSize: `${iconSize}px`, marginLeft: 50 }}
           onClick={() => changeBackground(-1)}
+          className="text-9xl"
         />
       </div>
       <div
@@ -106,7 +127,7 @@ export default function Welcome() {
       </div>
       <div className="basis-8 h-screen flex flex-col justify-center items-center text-center relative ">
         <ArrowForwardIosIcon
-          style={{ fontSize: 100, marginRight: 50 }}
+          style={{ fontSize: `${iconSize}px`, marginLeft: 50 }}
           onClick={() => changeBackground(1)}
         />
       </div>

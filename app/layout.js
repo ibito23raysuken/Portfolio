@@ -1,14 +1,13 @@
+"use client";
+import dynamic from "next/dynamic";
+const NoSSR = dynamic(() => import("./page"), { ssr: false });
 import "./globals.css";
-
-export const metadata = {
-  title: "Portfolio Faniry Navalona",
-  description: "Portfolio Faniry Navalona",
-};
-
-export default function RootLayout({ children }) {
+export default function RootLayout() {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden">{children}</body>
+      <body className="overflow-x-hidden">
+        <NoSSR />
+      </body>
     </html>
   );
 }

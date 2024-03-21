@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
       <CssBaseline />
-      <main>
+      <main className="w-screen">
         <Navbar toggleswitch={toggleswitch}></Navbar>
         <Welcome></Welcome>
         <Profile></Profile>

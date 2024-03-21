@@ -128,25 +128,23 @@ export default function Profile() {
       {showschool && (
         <>
           <div
-            className={`flex flex-row items-end `}
+            className={`flex flex-row items-stretch `}
             onMouseLeave={() => handleMouseLeave(null)}
             style={{
               marginRight: showArrows ? 14 : "",
-              marginBottom: hoveredArrow === "left" ? -30 : "",
             }}
           >
             {showline && (
               <Line x1={departX} y1={departY} x2={departX2} y2={departY2} />
             )}
             {showArrows && (
-              <div className="flex flex-col items-end">
+              <div className="flex flex-col items-end justify-start">
                 DÉVELOPPEUR
                 <WestIcon
                   style={{
                     fontSize: hoveredArrow === "left" ? 90 : 60,
                     opacity: hoveredArrow === "left" ? 1 : 0.4,
                     cursor: "pointer",
-                    marginBottom: Showcurvline2 ? "50" : "",
                   }}
                   onClick={handleClickcode}
                   onMouseEnter={() => handleArrowHover("left")}
