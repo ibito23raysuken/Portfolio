@@ -114,15 +114,29 @@ export default function Profile() {
       ref={divRef}
     >
       <div
-        className={s.iconetheme}
-        ref={divschool}
-        onMouseEnter={() => handleMouseEnter("school")}
+        className={
+          showschool
+            ? "grid grid-cols-2 justify-items-stretch w-screen mr-16 "
+            : "flex"
+        }
       >
-        <EmojiFlagsTwoToneIcon
-          sx={{ fontSize: 40, cursor: "pointer" }}
-          ref={divflag}
-          onClick={handleShowschoolChange}
-        />
+        {showschool && (
+          <div className="justify-self-start">
+            <CardProfile />
+          </div>
+        )}
+
+        <div
+          className={`${s.iconetheme} justify-self-start`}
+          ref={divschool}
+          onMouseEnter={() => handleMouseEnter("school")}
+        >
+          <EmojiFlagsTwoToneIcon
+            sx={{ fontSize: 40, cursor: "pointer" }}
+            ref={divflag}
+            onClick={handleShowschoolChange}
+          />
+        </div>
       </div>
 
       {showschool && (
@@ -135,7 +149,9 @@ export default function Profile() {
             }}
           >
             {showline && (
-              <Line x1={departX} y1={departY} x2={departX2} y2={departY2} />
+              <>
+                <Line x1={departX} y1={departY} x2={departX2} y2={departY2} />
+              </>
             )}
             {showArrows && (
               <div className="flex flex-col items-end justify-start">
@@ -151,7 +167,7 @@ export default function Profile() {
                   onMouseLeave={() => handleArrowHover(null)}
                 />
               </div>
-            )}
+            )}{" "}
             <div
               className={s.iconetheme}
               ref={divschool}
