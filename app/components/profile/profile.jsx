@@ -11,6 +11,7 @@ import CardProfile from "../card/card";
 import { Tune } from "@mui/icons-material";
 import CodeIcon from "@mui/icons-material/Code";
 import ElectricBoltTwoToneIcon from "@mui/icons-material/ElectricBoltTwoTone";
+import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 
 export default function Profile() {
   const divRef = useRef(null);
@@ -31,17 +32,31 @@ export default function Profile() {
   const [showcode, setShowcode] = useState(false);
   const [showArrows, setShowArrows] = useState(false);
   const [hoveredArrow, setHoveredArrow] = useState(null);
+  const [Showclosemode, setShowclosemode] = useState(false);
+
+  const [showArrows2, setShowArrows2] = useState(false);
+  const [hoveredArrow2, setHoveredArrow2] = useState(null);
 
   const handleMouseEnter = (arrow) => {
     setShowArrows(true);
     setHoveredArrow(arrow);
   };
 
+  const handleMouseEnter2 = (arrow) => {
+    setShowArrows2(true);
+    setHoveredArrow2(arrow);
+  };
+  const handleMouseLeave2 = () => {
+    setShowArrows2(false);
+    setHoveredArrow2(null);
+  };
   const handleMouseLeave = () => {
     setShowArrows(false);
     setHoveredArrow(null);
   };
-
+  const handleArrowHover2 = (arrow) => {
+    setHoveredArrow2(arrow);
+  };
   const handleArrowHover = (arrow) => {
     setHoveredArrow(arrow);
   };
@@ -65,8 +80,12 @@ export default function Profile() {
     setShowelectrical((prevShowelectrical) => !prevShowelectrical);
   };
   const handleClickcode = () => {
+    setShowclosemode((prevShowclosemode) => !prevShowclosemode);
     setShowcode((prevShowcode) => !prevShowcode);
   };
+  const handleClickIOT = () => {};
+  const handleClickfullstack = () => {};
+
   useEffect(() => {
     if (showelectrical) {
       setShowcurvline(true);
@@ -156,18 +175,32 @@ export default function Profile() {
             {showArrows && (
               <div className="flex flex-col items-end justify-start">
                 DÉVELOPPEUR
-                <WestIcon
-                  style={{
-                    fontSize: hoveredArrow === "left" ? 90 : 60,
-                    opacity: hoveredArrow === "left" ? 1 : 0.4,
-                    cursor: "pointer",
-                  }}
-                  onClick={handleClickcode}
-                  onMouseEnter={() => handleArrowHover("left")}
-                  onMouseLeave={() => handleArrowHover(null)}
-                />
+                {!Showclosemode ? (
+                  <WestIcon
+                    style={{
+                      fontSize: hoveredArrow === "left" ? 90 : 60,
+                      opacity: hoveredArrow === "left" ? 1 : 0.4,
+                      cursor: "pointer",
+                    }}
+                    onClick={handleClickcode}
+                    onMouseEnter={() => handleArrowHover("left")}
+                    onMouseLeave={() => handleArrowHover(null)}
+                  />
+                ) : (
+                  <CloseSharpIcon
+                    style={{
+                      fontSize: hoveredArrow === "left" ? 90 : 60,
+                      opacity: hoveredArrow === "left" ? 1 : 0.4,
+                      cursor: "pointer",
+                      color: "red",
+                    }}
+                    onClick={handleClickcode}
+                    onMouseEnter={() => handleArrowHover("left")}
+                    onMouseLeave={() => handleArrowHover(null)}
+                  />
+                )}
               </div>
-            )}{" "}
+            )}
             <div
               className={s.iconetheme}
               ref={divschool}
@@ -178,23 +211,44 @@ export default function Profile() {
             {showArrows && (
               <div className="flex flex-col">
                 ELECTRICITÉ
-                <EastIcon
-                  style={{
-                    fontSize: hoveredArrow === "right" ? 90 : 60,
-                    opacity: hoveredArrow === "right" ? 1 : 0.4,
-                    cursor: "pointer",
-                  }}
-                  onClick={handleClickelectricity}
-                  onMouseEnter={() => handleArrowHover("right")}
-                  onMouseLeave={() => handleArrowHover(null)}
-                />
+                {!showelectrical ? (
+                  <EastIcon
+                    style={{
+                      fontSize: hoveredArrow === "right" ? 90 : 60,
+                      opacity: hoveredArrow === "right" ? 1 : 0.4,
+                      cursor: "pointer",
+                    }}
+                    onClick={handleClickelectricity}
+                    onMouseEnter={() => handleArrowHover("right")}
+                    onMouseLeave={() => handleArrowHover(null)}
+                  />
+                ) : (
+                  <CloseSharpIcon
+                    style={{
+                      fontSize: hoveredArrow === "right" ? 90 : 60,
+                      opacity: hoveredArrow === "right" ? 1 : 0.4,
+                      cursor: "pointer",
+                      color: "red",
+                    }}
+                    onClick={handleClickelectricity}
+                    onMouseEnter={() => handleArrowHover("right")}
+                    onMouseLeave={() => handleArrowHover(null)}
+                  />
+                )}
               </div>
             )}
           </div>
-          <div className="flex flex-row  ">
+          {/* partie 2  du neurone */}
+          <div
+            className={`flex flex-row items-stretch `}
+            onMouseLeave={() => handleMouseLeave2(null)}
+            style={{
+              marginRight: showArrows ? 14 : "",
+            }}
+          >
             {showcode && (
               <div
-                className={s.iconetheme}
+                className="flex"
                 style={{
                   marginTop: 80,
                   marginRight: showelectrical && showcode ? -199 : 370,
@@ -206,11 +260,47 @@ export default function Profile() {
                     x1={departX2 - 150 - 30}
                     y1={departY2 + 15}
                     lengthX={150}
-                    lengthY={120}
+                    lengthY={200}
                     invert={true}
                   />
                 )}
-                <CodeIcon style={{ fontSize: 40 }} />
+                {showArrows2 && (
+                  <div className="flex flex-col items-end justify-start">
+                    IoT
+                    <WestIcon
+                      style={{
+                        fontSize: hoveredArrow2 === "left" ? 90 : 60,
+                        opacity: hoveredArrow2 === "left" ? 1 : 0.4,
+                        cursor: "pointer",
+                      }}
+                      onClick={handleClickIOT}
+                      onMouseEnter={() => handleArrowHover2("left")}
+                      onMouseLeave={() => handleArrowHover2(null)}
+                    />
+                  </div>
+                )}
+                <div
+                  className={`${s.iconetheme} ml-2`}
+                  ref={divcode}
+                  onMouseEnter={() => handleMouseEnter2("code")}
+                >
+                  <CodeIcon style={{ fontSize: 40 }} />
+                </div>
+                {showArrows2 && (
+                  <div className="flex flex-col">
+                    FULL-STACK
+                    <EastIcon
+                      style={{
+                        fontSize: hoveredArrow2 === "right" ? 90 : 60,
+                        opacity: hoveredArrow2 === "right" ? 1 : 0.4,
+                        cursor: "pointer",
+                      }}
+                      onClick={handleClickfullstack}
+                      onMouseEnter={() => handleArrowHover2("right")}
+                      onMouseLeave={() => handleArrowHover2(null)}
+                    />
+                  </div>
+                )}
               </div>
             )}
             {showelectrical && (
