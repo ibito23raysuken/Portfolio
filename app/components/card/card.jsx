@@ -50,9 +50,9 @@ export default function CardProfile() {
         </>
       ) : (
         <>
-          <div className="flex rounded-3xl  justify-items-center ml-2">
-            <div className=" w-20 h-20 rounded-full pt-5 bg-blue-600 ">
-              <div className="w-16 h-16 rounded-full overflow-hidden justify-self-center">
+          <div className="flex rounded-3xl ml-2">
+            <div className="grid  place-content-center min-w-[5rem] min-h-[5rem] rounded-full  bg-blue-600 ">
+              <div className="w-16 h-16 rounded-full overflow-hidden self-center">
                 <Image src={Profile2} alt="" />
               </div>
             </div>
