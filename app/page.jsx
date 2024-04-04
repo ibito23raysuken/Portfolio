@@ -7,6 +7,7 @@ import Profile from "./components/profile/profile";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import Project from "./components/project.jsx/project";
 
 const darkTheme = createTheme({
   palette: {
@@ -36,6 +37,7 @@ export default function Home() {
         <Navbar toggleswitch={toggleswitch}></Navbar>
         <Welcome></Welcome>
         <Profile></Profile>
+        <Project></Project>
       </main>
     </ThemeProvider>
   );

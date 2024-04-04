@@ -79,7 +79,7 @@ export default function Navbar({ toggleswitch }) {
             <a href="#profile">Profile</a>
           </div>
           <div className="text-white capitalize p-4 text-2xl">
-            <a>Projet</a>
+            <a href="#projet">Projet</a>
           </div>
           <div className="text-white capitalize p-4 text-2xl">
             <a>contact</a>
