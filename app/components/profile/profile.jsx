@@ -118,7 +118,6 @@ export default function Profile() {
         setX3(valeurx3);
       }
       if (refCodeIcon.current) {
-        console.log(refCodeIcon.current.getBoundingClientRect());
         setY8(heightrows7 + 20);
         setX8(refCodeIcon.current.getBoundingClientRect().left + 20);
       }
@@ -151,7 +150,6 @@ export default function Profile() {
         setX10(valeurx10 + 20);
         setY10(heightrows7 + 40);
         setY9(0 - 40);
-        console.log(y9);
       }
     }
   }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 import Profile2 from "../../../public/images/profile2.png";
+import { useTheme } from "@mui/material/styles";
 
 export default function CardProfile() {
   const [Showcard, setShowcard] = useState();
+  const theme = useTheme();
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1200) {
@@ -19,6 +21,7 @@ export default function CardProfile() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  console.log(theme.palette.mode);
   return (
     <>
       {Showcard ? (
@@ -51,16 +54,23 @@ export default function CardProfile() {
       ) : (
         <>
           <div className="flex rounded-3xl ml-2">
-            <div className="grid  place-content-center min-w-[5rem] min-h-[5rem] rounded-full  bg-blue-600 ">
+            <div
+              className="grid  place-content-center min-w-[5rem] min-h-[5rem] rounded-full  "
+              style={{ backgroundColor: theme.palette.primary.main }}
+            >
               <div className="w-16 h-16 rounded-full overflow-hidden self-center">
                 <Image src={Profile2} alt="" />
               </div>
             </div>
-            <div className="text-center">
-              <div className="text-gray-900 font-bold text-xs sm:text-lg justify-items-center">
+            <div
+              className={` self-center ml-2 ${
+                theme.palette.mode === "dark" ? "text-white" : "text-black"
+              }`}
+            >
+              <div className="font-bold text-xs sm:text-lg justify-items-center">
                 ANDRIAMAMONJISOA
               </div>
-              <div className="text-gray-900 text-lg ">FANIRY NAVALONA</div>
+              <div className=" text-lg ">FANIRY NAVALONA</div>
             </div>
           </div>
         </>
