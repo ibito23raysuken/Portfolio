@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 const NoSSR = dynamic(() => import("./page"), { ssr: false });
 import "./globals.css";
+
 export default function RootLayout() {
   return (
     <html lang="en">

@@ -2,12 +2,13 @@
 import React, { useState, useEffect } from "react";
 
 import Navbar from "./components/navbar/navbar";
-import Welcome from "./components/welcome/welcome";
-import Profile from "./components/profile/profile";
+import Welcome from "./components/Page/welcome/welcome";
+import Profile from "./components/Page/profile/profile";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Project from "./components/project.jsx/project";
+import Project from "./components/Page/project/project";
+import Contact from "./components/Page/contact/contact";
 
 const darkTheme = createTheme({
   palette: {
@@ -38,6 +39,7 @@ export default function Home() {
         <Welcome></Welcome>
         <Profile></Profile>
         <Project></Project>
+        <Contact></Contact>
       </main>
     </ThemeProvider>
   );

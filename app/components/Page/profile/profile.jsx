@@ -2,12 +2,12 @@ import React, { useRef, useState, useEffect } from "react";
 import s from "./style.module.css";
 
 import EmojiFlagsTwoToneIcon from "@mui/icons-material/EmojiFlagsTwoTone";
-import Line from "../line/line";
+import Line from "../../widget/line/line";
 import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
-import Curvedline from "../curvedline/curvedline";
-import CardProfile from "../card/card";
+import Curvedline from "../../widget/curvedline/curvedline";
+import CardProfile from "../../widget/card/card";
 import { Tune } from "@mui/icons-material";
 import CodeIcon from "@mui/icons-material/Code";
 import ElectricBoltTwoToneIcon from "@mui/icons-material/ElectricBoltTwoTone";
@@ -17,9 +17,16 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import LaptopWindowsIcon from "@mui/icons-material/LaptopWindows";
 import SolarPowerIcon from "@mui/icons-material/SolarPower";
 import EngineeringIcon from "@mui/icons-material/Engineering";
-import Neurone from "../neurone/neurone";
-import CustomIcone from "../icone/icone";
-import LineCustome from "../line/linecustome";
+import Neurone from "../../widget/neurone/neurone";
+import CustomIcone from "../../widget/icone/icone";
+import LineCustome from "../../widget/line/linecustome";
+
+import CardDev from "../../widget/carddev/carddev";
+import Cardcenter from "../../widget/cardcenter/cardcenter";
+import Cardelec from "../../widget/cardelec/cardelec";
+
+import devmobile from "../../../../public/images/icones/devmobile.png";
+
 export default function Profile() {
   const [ShowchildFlag, setShowchildFlag] = useState(false);
   const [ShowchildDev, setShowchildDev] = useState(false);
@@ -176,11 +183,22 @@ export default function Profile() {
     };
   }, [ShowchildFlag, ShowIot, ShowSolar, refEngineeringIcon, ShowchildElec]);
   return (
-    <div id="profile" className="h-screen pt-16">
+    <div id="profile" className="max-h-screen pt-16 -z-20 ">
       <div className="grid grid-rows-9">
         <div className="grid grid-cols-3 ">
           <div className=" bg-red-400 h-0">
             {ShowchildFlag && <CardProfile />}
+            {ShowchildFlag && ShowchildDev && (
+              <div className="mt-20">
+                <CardDev
+                  parametres={[
+                    { icone: devmobile, name: "Mobile", level: 5 },
+                    { icone: devmobile, name: "IOt", level: 4 },
+                    { icone: devmobile, name: "Web", level: 3 },
+                  ]}
+                />
+              </div>
+            )}
           </div>
           <div className=" text-gray-700 justify-self-center">
             <CustomIcone
@@ -189,13 +207,35 @@ export default function Profile() {
               NeuroneName={"EmojiFlagsTwoToneIcon"}
             />
           </div>
-          <div></div>
+          <div className="h-0">
+            {ShowchildFlag && ShowchildElec && (
+              <div className="mt-20">
+                <CardDev
+                  parametres={[
+                    { name: "Chef de projet", level: 2 },
+                    { name: "Bureau d'etude", level: 1 },
+                  ]}
+                />
+              </div>
+            )}
+            {ShowchildFlag && ShowchildElec && ShowSolar && (
+              <div className="mt-20">
+                <CardDev
+                  parametres={[
+                    { name: "Dimmensionnement PS", level: 2 },
+                    { name: "Programation SMA", level: 1 },
+                    { name: "Victron", level: 1 },
+                  ]}
+                />
+              </div>
+            )}
+          </div>
         </div>
 
         {ShowchildFlag && (
           <>
             <div className="grid grid-cols-3 ">
-              <div className=""></div>
+              <div className="h-0"></div>
               <div className=" text-gray-700 justify-self-center">
                 <Line />
               </div>
@@ -205,8 +245,8 @@ export default function Profile() {
             <>
               <Neurone
                 BaseIcon={SchoolTwoToneIcon}
-                LeftIcon={WestIcon}
-                RightIcon={EastIcon}
+                LeftIcon={ShowchildDev ? CloseSharpIcon : WestIcon}
+                RightIcon={ShowchildElec ? CloseSharpIcon : EastIcon}
                 LeftLabel={"DÉVELOPPEUR"}
                 RightLabel={"ELECTRICITÉ"}
                 onclickleftArrow={onclickleftArrow}
@@ -253,8 +293,10 @@ export default function Profile() {
                     <>
                       <Neurone
                         BaseIcon={LaptopWindowsIcon}
-                        LeftIcon={WestIcon}
-                        RightIcon={ArrowDownwardIcon}
+                        LeftIcon={ShowIot ? CloseSharpIcon : WestIcon}
+                        RightIcon={
+                          ShowFullstack ? CloseSharpIcon : ArrowDownwardIcon
+                        }
                         LeftLabel={"IOT"}
                         RightLabel={"FULL-STACK"}
                         onclickleftArrow={onclickleftArrow}
@@ -265,15 +307,28 @@ export default function Profile() {
                     </>
                   )}
                 </div>
-                <div className=""></div>
-                <div className=""></div>
+                <div className="bg-black place-content-start h-0 col-start-4 col-end-6 ml-5 mr-5">
+                  {ShowchildFlag && ShowchildDev && ShowIot && (
+                    <div className="">
+                      <Cardcenter
+                        parametres={[
+                          { name: "Arduino", level: 4 },
+                          { name: "PIC", level: 1 },
+                          { name: "Electronique", level: 2 },
+                        ]}
+                      />
+                    </div>
+                  )}
+                </div>
                 <div>
                   {ShowchildElec && (
                     <>
                       <Neurone
                         BaseIcon={ElectricBoltTwoToneIcon}
-                        LeftIcon={ArrowDownwardIcon}
-                        RightIcon={EastIcon}
+                        LeftIcon={
+                          ShowBatiment ? CloseSharpIcon : ArrowDownwardIcon
+                        }
+                        RightIcon={ShowSolar ? CloseSharpIcon : EastIcon}
                         LeftLabel={"CONSTRUCTION"}
                         RightLabel={"SOLAIRE"}
                         onclickleftArrow={onclickleftArrow}
@@ -318,7 +373,20 @@ export default function Profile() {
             </div>
             <div className=" text-gray-700">
               <div className="grid grid-cols-4">
-                <div className=" "></div>
+                <div className="h-0">
+                  {ShowchildFlag && ShowchildDev && ShowFullstack && (
+                    <div className="">
+                      <CardDev
+                        parametres={[
+                          { name: "LARAVEL", level: 3 },
+                          { name: "REACTJS", level: 1 },
+                          { name: "PYTHON", level: 2 },
+                          { name: "FLUTTER", level: 3 },
+                        ]}
+                      />
+                    </div>
+                  )}
+                </div>
                 <div className=" justify-self-center">
                   <div>
                     {ShowchildDev && ShowFullstack && (
@@ -345,7 +413,23 @@ export default function Profile() {
                     </div>
                   )}
                 </div>
-                <div className=" "> </div>
+                <div className="h-0">
+                  {ShowchildFlag && ShowchildElec && ShowBatiment && (
+                    <div className="">
+                      <Cardelec
+                        parametres={[
+                          { name: "Norme NFC-100-15", level: 2 },
+                          { name: "Autocad", level: 1 },
+                          { name: "Dialux", level: 1 },
+                          {
+                            name: "Dimmensionnement Installation Electrique",
+                            level: 3,
+                          },
+                        ]}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </>

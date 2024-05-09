@@ -2,12 +2,12 @@ import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
 import s from "./style.module.css";
 
 import EmojiFlagsTwoToneIcon from "@mui/icons-material/EmojiFlagsTwoTone";
-import Line from "../line/line";
+import Line from "../../widget/line/line";
 import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
 import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
-import Curvedline from "../curvedline/curvedline";
-import CardProfile from "../card/card";
+import Curvedline from "../../widget/curvedline/curvedline";
+import CardProfile from "../../widget/card/card";
 import { Tune } from "@mui/icons-material";
 import CodeIcon from "@mui/icons-material/Code";
 import ElectricBoltTwoToneIcon from "@mui/icons-material/ElectricBoltTwoTone";

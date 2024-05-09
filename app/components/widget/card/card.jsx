@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
-import Profile2 from "../../../public/images/profile2.png";
+import Profile2 from "../../../../public/images/profile2.png";
 import { useTheme } from "@mui/material/styles";
 
 export default function CardProfile() {
@@ -21,7 +21,6 @@ export default function CardProfile() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log(theme.palette.mode);
   return (
     <>
       {Showcard ? (

@@ -82,7 +82,7 @@ export default function Navbar({ toggleswitch }) {
             <a href="#projet">Projet</a>
           </div>
           <div className="text-white capitalize p-4 text-2xl">
-            <a>contact</a>
+            <a href="#contact">contact</a>
           </div>
         </div>
 
