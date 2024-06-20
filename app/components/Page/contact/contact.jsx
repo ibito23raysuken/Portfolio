@@ -36,7 +36,7 @@ export default function Contact() {
               <form action="" method="POST" className="m-4">
                 <div>
                   <label htmlFor="nom">Nom :</label>
-                  <input type="text" name="nom" />
+                  <input type="text" className="form-input" name="nom" />
                 </div>
                 <div>
                   <label htmlFor="email">Email :</label>
