@@ -5,6 +5,16 @@ import { TileLayer } from "react-leaflet/TileLayer";
 import { useMap } from "react-leaflet/hooks";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconAnchor: [12, 41], // Anchor the icon to the center bottom point
+});
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const LeafletMap = () => {
   const [center, setCenter] = useState({ lat: 13.084622, lng: 80.248357 });
@@ -27,9 +37,7 @@ const LeafletMap = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={position}>
-          <Popup>
-            Micro H<br />
-          </Popup>
+          <Popup>Micro-H</Popup>
         </Marker>
       </MapContainer>
     </div>

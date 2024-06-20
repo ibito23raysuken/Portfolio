@@ -16,12 +16,12 @@ export default function Project() {
           LISTE DE TOUTS LES PROJETS:
         </div>
       </div>
-      <div className="shadow-lg shadow-indigo-500/40 border border-gray-400  bg-white  justify-between leading-normal mr-36 ml-36 rounded-3xl h-3/5">
+      <div className="shadow-lg shadow-indigo-500/40 border border-gray-400  bg-black  justify-between leading-normal mr-36 ml-36 rounded-3xl h-3/5">
         <div className="grid grid-cols-3 gap-4 h-full rounded-3xl p-4">
-          <div className="bg-red-400 h-full col-span-2 rounded-l-3xl">
+          <div className="bg-black-400 h-full col-span-2 rounded-l-3xl">
             Apercue
           </div>
-          <div className="bg-green-400 h-full rounded-r-3xl">liste</div>
+          <div className="bg-black-400 h-full rounded-r-3xl"></div>
         </div>
       </div>
     </div>
