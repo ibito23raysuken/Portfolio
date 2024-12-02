@@ -89,7 +89,7 @@ export default function Welcome() {
           >
             <span className=" text-white font-light">&lt;</span>
             <span className="text-red-400 font-normal">div</span>
-            <span> TONGASOA</span>
+            <span> TONGASOA EHH</span>
             <span className=" text-white font-light">&#47; &gt;</span>
           </div>
 
