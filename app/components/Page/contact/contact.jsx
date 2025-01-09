@@ -28,7 +28,6 @@ export default function Contact() {
             <div className="grid grid-rows-2">
               <div className="bg-blue-300">
                 <div class="">
-                  <DynamicLeafletMap />
                 </div>
               </div>
               <div className="bg-blue-500 grid grid-cols-5 h-11 mt-5">
@@ -36,9 +35,9 @@ export default function Contact() {
                   type="button"
                   data-twe-ripple-init
                   data-twe-ripple-color="light"
-                  class="flex rounded bg-[#1da1f2] text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                  className="flex rounded bg-[#1da1f2] text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
                 >
-                  <span class="me-2 [&>svg]:h-4 [&>svg]:w-4">
+                  <span className="me-2 [&>svg]:h-4 [&>svg]:w-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -54,9 +53,9 @@ export default function Contact() {
                   type="button"
                   data-twe-ripple-init
                   data-twe-ripple-color="light"
-                  class="mb-2 flex rounded bg-[#181717] text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                  className="mb-2 flex rounded bg-[#181717] text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
                 >
-                  <span class="me-2 [&>svg]:h-4 [&>svg]:w-4">
+                  <span className="me-2 [&>svg]:h-4 [&>svg]:w-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -72,9 +71,9 @@ export default function Contact() {
                   type="button"
                   data-twe-ripple-init
                   data-twe-ripple-color="light"
-                  class="mb-2 flex rounded bg-[#1DA1F2]  text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                  className="mb-2 flex rounded bg-[#1DA1F2]  text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
                 >
-                  <span class="me-2 [&>svg]:h-4 [&>svg]:w-4">
+                  <span className="me-2 [&>svg]:h-4 [&>svg]:w-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -89,9 +88,9 @@ export default function Contact() {
                   type="button"
                   data-twe-ripple-init
                   data-twe-ripple-color="light"
-                  class="mb-2 flex rounded bg-[#0A66C2] text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                  className="mb-2 flex rounded bg-[#0A66C2] text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
                 >
-                  <span class="me-2 [&>svg]:h-4 [&>svg]:w-4">
+                  <span className="me-2 [&>svg]:h-4 [&>svg]:w-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -106,9 +105,9 @@ export default function Contact() {
                   type="button"
                   data-twe-ripple-init
                   data-twe-ripple-color="light"
-                  class="mb-2 flex rounded bg-[#25D366]  text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                  className="mb-2 flex rounded bg-[#25D366]  text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
                 >
-                  <span class="[&>svg]:h-5 [&>svg]:w-5">
+                  <span className="[&>svg]:h-5 [&>svg]:w-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -123,7 +122,7 @@ export default function Contact() {
             </div>
             <div className=" col-span-2 rounded-r-3xl">
               <form action="" method="POST" className="m-4">
-                <div class="relative mb-6" data-twe-input-wrapper-init>
+                <div className="relative mb-6" data-twe-input-wrapper-init>
                   <label htmlFor="nom" className="text-black">
                     Nom:
                   </label>
@@ -133,7 +132,7 @@ export default function Contact() {
                     className="bg-gray-50 border  border-gray-900 text-gray-900 text-sm rounded-lg border-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   />
                 </div>
-                <div class="relative mb-3" data-twe-input-wrapper-init>
+                <div className="relative mb-3" data-twe-input-wrapper-init>
                   <label htmlFor="nom" className="text-black">
                     Email:
                   </label>
@@ -142,12 +141,12 @@ export default function Contact() {
                     className="bg-gray-50 border  border-gray-900 text-gray-900 text-sm rounded-lg border-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   />
                 </div>
-                <div class="relative mb-3" data-twe-input-wrapper-init>
+                <div className="relative mb-3" data-twe-input-wrapper-init>
                   <label htmlFor="nom" className="text-black">
                     Message:
                   </label>
                   <textarea
-                    class="bg-gray-50 border  border-gray-900 text-gray-900 text-sm rounded-lg border-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    className="bg-gray-50 border  border-gray-900 text-gray-900 text-sm rounded-lg border-1 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     id="exampleFormControlTextarea1"
                     rows="3"
                   ></textarea>
