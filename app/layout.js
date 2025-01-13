@@ -5,7 +5,7 @@ import "./globals.css";
 
 export default function RootLayout() {
   return (
-    <html lang="en">
+    <html lang="en">  
       <body className="overflow-x-hidden">
         <NoSSR />
       </body>

@@ -1,17 +1,11 @@
 "use client";
 import React, { useRef } from "react";
-import dynamic from "next/dynamic";
-import Maps from "../../widget/map/maps";
-import "leaflet/dist/leaflet.css";
+import Map from "../../widget/map/map";
+
 
 export default function Contact() {
   const annee = "2024";
-  const mapIsReadyCallback = (map) => {
-    console.log(map);
-  };
-  const DynamicLeafletMap = dynamic(() => import("../../widget/map/maps"), {
-    ssr: false,
-  });
+
   return (
     <div
       id="contact"
@@ -28,6 +22,7 @@ export default function Contact() {
             <div className="grid grid-rows-2">
               <div className="bg-blue-300">
                 <div class="">
+                  <Map />
                 </div>
               </div>
               <div className="bg-blue-500 grid grid-cols-5 h-11 mt-5">
