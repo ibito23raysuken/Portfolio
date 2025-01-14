@@ -4,7 +4,8 @@ import Map from "../../widget/map/map";
 
 
 export default function Contact() {
-  const annee = "2024";
+  const today = new Date();
+  const annee = today.getFullYear();
 
   return (
     <div
