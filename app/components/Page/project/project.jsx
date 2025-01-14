@@ -9,7 +9,6 @@ export default function Project() {
     <div
       id="projet"
       className="  h-screen mt-96"
-      style={{ backgroundColor: theme.palette.primary.main }}
     >
       <ParticlesBackground />
       <div className="flex place-content-center ">
