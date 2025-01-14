@@ -20,8 +20,8 @@
     "framer-motion": "^11.2.11",
     "leaflet": "^1.9.4",
     "next": "^15.1.4",
-    "react": "^19.0.0-rc.1",
-    "react-dom": "^19.0.0-rc.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1",
     "react-svg-curve": "^0.2.1",
     "tsparticles": "^3.3.0"
