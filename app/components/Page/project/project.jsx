@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import ParticlesBackground from "./ParticlesBackground";
 import { useTheme } from "@mui/material/styles";
+import ReactPlayer from 'react-player/youtube'
 
 export default function Project() {
   const theme = useTheme();
@@ -20,12 +21,7 @@ export default function Project() {
                           {/* Section Vidéo */}
               <div className="  items-center  w-3/4 h-full m-4">
                 <div className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://youtu.be/J9B1-Ldclxc"
-                    title="Vidéo Aperçu"
-                    className="w-full h-full"
-                    allowFullScreen
-                  ></iframe>
+                  <ReactPlayer url='https://youtu.be/_GohoygyCNE '/>
                 </div>
               </div>
 
